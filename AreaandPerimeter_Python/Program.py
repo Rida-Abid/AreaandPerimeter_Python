@@ -6,9 +6,8 @@ from decimal import Decimal
 def DisplayValues(heading, results):
                 print("-----------------------------")
                 print(heading)
-                print("-----------------------------")
-                for result in results:
-                    print(result)
+                
+                print(results)
 def main():
     args = sys.argv[1:]
     
@@ -18,31 +17,35 @@ def main():
            print("usage:Enter S, R or T for Square, Rectangle and Triangle then Enter length, bredth and height")
         
         else:
-            length, bredth, height = args[2,3,4]
-            logic = Calc(Decimal(length), Decimal(bredth), Decimal(height))
-              
-            if args[1].casefold == "s":
-                DisplayValues("Area of Sqaure is:",logic.areaofSquare(length))
-                DisplayValues("Perimeter of Sqaure is:",logic.perimeterofSquare(length))
+            shape, length, bredth, height = args
+            length, bredth, height = Decimal(length), Decimal(bredth), Decimal(height)
+            logic = Calc
 
-            elif args[1].casefold == "t":
-                DisplayValues("Area of Triangle is:",logic.areaofTriangle(length, bredth))
-                DisplayValues("Perimeter of Triangle is:",logic.perimeterofTriangle(length, bredth, height))
+            if (length < 0) or (bredth < 0) or (height < 0):
+                print("Enter all values greater than 0")
             
-            elif args[1].casefold == "r":
-                DisplayValues("Area of Rectangle is:",logic.areaofRectangle(length, bredth))
-                DisplayValues("Perimeter of Rectangle is:",logic.perimeterofRectangle(length, bredth))
-
             else:
-                print("Invalid Choice")
+                if shape.isalpha() == False:
+                    print("Enter S, R or T for Square, Rectangle and Triangle")
+
+                elif shape.casefold() == "s":
+                    DisplayValues("Area of Sqaure is:",logic.process.areaofSquare(length))
+                    DisplayValues("Perimeter of Sqaure is:",logic.perimeterofSquare(length))
+
+                elif shape.casefold() == "t":
+                    DisplayValues("Area of Triangle is:",logic.process.areaofTriangle(length, bredth))
+                    DisplayValues("Perimeter of Triangle is:",logic.perimeterofTriangle(length, bredth, height))
+            
+                elif shape.casefold() == "r":
+                    DisplayValues("Area of Rectangle is:",logic.areaofRectangle(length, bredth))
+                    DisplayValues("Perimeter of Rectangle is:",logic.perimeterofRectangle(length, bredth))
+
+                else:
+                    print("")
                 
-    except ValueError:
-        for a in args[1]:
-            if (a.isalpha()) == False:
-                print("Enter S, R or T for Square, Rectangle and Triangle")
-        for a in args[2,3,4]:
-            if not(a.isnumeric()) == False:
-                print("Enter numeric values for length, bredth, height")
+    except :
+        if (length.isalpha()) or (bredth.isalpha()) or (height.isalpha()) == True:
+            print("Enter numeric values for length, bredth, height")
 
 
 if __name__ == '__main__':
