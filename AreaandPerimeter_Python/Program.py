@@ -18,7 +18,7 @@ def main():
         
         else:
             shape, length, bredth, height = args
-            length, bredth, height = Decimal(length), Decimal(bredth), Decimal(height)
+            length, bredth, height = float(length), float(bredth), float(height)
             logic = Calc
 
             if (length < 0) or (bredth < 0) or (height < 0):

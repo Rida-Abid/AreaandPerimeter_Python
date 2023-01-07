@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>AreaandPerimeter_Python</Name>
     <RootNamespace>AreaandPerimeter_Python</RootNamespace>
+    <TestFramework>unittest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,6 +24,9 @@
   <ItemGroup>
     <Compile Include="Logic.py" />
     <Compile Include="Program.py" />
+    <Compile Include="test_AreaandPerimeter.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

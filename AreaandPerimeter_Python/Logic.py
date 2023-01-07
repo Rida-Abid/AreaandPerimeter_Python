@@ -7,7 +7,7 @@ class Calc:
 
     staticmethod
     def perimeterofSquare(self, length):
-        return 4 * length
+        return  4 * length
 
     staticmethod
     def areaofTriangle(self, length, bredth):
@@ -22,5 +22,5 @@ class Calc:
         return length * bredth
 
     staticmethod
-    def areaofRectangle(self, length, bredth):
+    def perimeterofRectangle(self, length, bredth):
         return 2 *(length * bredth)
