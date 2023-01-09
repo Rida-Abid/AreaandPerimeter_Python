@@ -18,7 +18,7 @@ def main():
         
         else:
             shape, length, bredth, height = args
-            length, bredth, height = float(length), float(bredth), float(height)
+            length, bredth, height = Decimal(length), Decimal(bredth), Decimal(height)
             logic = Calc
 
             if (length < 0) or (bredth < 0) or (height < 0):
@@ -29,11 +29,11 @@ def main():
                     print("Enter S, R or T for Square, Rectangle and Triangle")
 
                 elif shape.casefold() == "s":
-                    DisplayValues("Area of Sqaure is:",logic.process.areaofSquare(length))
+                    DisplayValues("Area of Sqaure is:",logic.areaofSquare(length))
                     DisplayValues("Perimeter of Sqaure is:",logic.perimeterofSquare(length))
 
                 elif shape.casefold() == "t":
-                    DisplayValues("Area of Triangle is:",logic.process.areaofTriangle(length, bredth))
+                    DisplayValues("Area of Triangle is:",logic.areaofTriangle(length, bredth))
                     DisplayValues("Perimeter of Triangle is:",logic.perimeterofTriangle(length, bredth, height))
             
                 elif shape.casefold() == "r":
@@ -41,10 +41,10 @@ def main():
                     DisplayValues("Perimeter of Rectangle is:",logic.perimeterofRectangle(length, bredth))
 
                 else:
-                    print("")
+                    print("Invalid Choice for Shape")
                 
     except :
-        if (length.isalpha()) or (bredth.isalpha()) or (height.isalpha()) == True:
+        if (length.isdecimal()) or (bredth.isdecimal()) or (height.isdecimal()) == False:
             print("Enter numeric values for length, bredth, height")
 
 
